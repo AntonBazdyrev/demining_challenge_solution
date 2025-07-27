@@ -1,0 +1,36 @@
+[tool.poetry]
+name        = "ai-jam"
+version     = "0.1.0"
+description = ""
+authors     = ["None"]
+readme      = "README.md"
+
+[tool.poetry.dependencies]
+python       = "^3.11"
+
+# CUDA‑121 PyTorch wheels
+torch        = { version = "2.1.0", source = "pytorch-cu121" }
+torchvision  = { version = "0.16",   source = "pytorch-cu121" }
+
+# Local wheel for MMCV (downloaded manually)
+mmcv         = { path = ".wheels/mmcv-2.1.0-cp311-cp311-manylinux1_x86_64.whl" }
+
+# Everything else from PyPI
+openmim      = "*"
+mmengine     = "0.10.7"
+mmdet        = ">=3.3.0"
+ipykernel = "^6.30.0"
+notebook = "^7.4.4"
+numpy = "<2.0.0"
+future = "^1.0.0"
+tensorboard = "^2.20.0"
+scikit-learn = "^1.7.1"
+
+[[tool.poetry.source]]
+name     = "pytorch-cu121"
+url      = "https://download.pytorch.org/whl/cu121"
+priority = "explicit"
+
+[build-system]
+requires    = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
